@@ -1,0 +1,18 @@
+{
+  "name": "pptr-ff-example",
+  "license": "MPL-2.0",
+  "version": "0.0.1",
+  "description": "Simple example using pptr-ff",
+  "main": "index.js",
+  "repository": "github:juliandescottes/pptr-ff",
+  "homepage": "https://github.com/juliandescottes/pptr-ff",
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "puppeteer": {
+    "firefox_download_path": "nightly/2019/06/2019-06-05-09-52-25-mozilla-central/firefox-69.0a1"
+  },
+  "dependencies": {
+    "jdescottes-pptr-ff": "^0.0.2"
+  }
+}
