@@ -5,10 +5,11 @@ const puppeteer = require('jdescottes-pptr-ff');
   const browser = await puppeteer.launch({
     headless: false
   });
-  console.log('Create page');
   const page = await browser.newPage();
-  console.log("after browser.newPage()");
   await page.goto('http://example.com');
-  console.log("after page.goto('http://example.com');");
+
+  // Just wait a few seconds for fun.
+  await new Promise(r => setTimeout(r, 5000));
+
   await browser.close();
 })();
