@@ -1,15 +1,27 @@
-const puppeteer = require('jdescottes-pptr-ff');
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-(async() => {
-  console.log('Launch browser');
-  const browser = await puppeteer.launch({
-    headless: false
+"use strict";
+
+const puppeteerChrome = require('puppeteer');
+const puppeteerFirefox = require('jdescottes-pptr-ff');
+
+const startPuppeteerBrowser = function(argv) {
+  const isChrome = argv.some(arg => arg.includes("chrome"));
+  console.log('[index] Using Browser: ' + (isChrome ? 'Chrome' : 'Firefox'));
+  const puppeteer = isChrome ? puppeteerChrome : puppeteerFirefox;
+
+  const pathArg = argv.find(arg => arg.includes("path="));
+  const executablePath = pathArg ? pathArg.split("=")[1] : null;
+  if (executablePath) {
+    console.log(`[index] Using Browser executable at ${executablePath}`);
+  }
+
+  console.log('[index] Launch browser');
+  return puppeteer.launch({
+    headless: false,
+    executablePath,
   });
-  const page = await browser.newPage();
-  await page.goto('http://example.com');
-
-  // Just wait a few seconds for fun.
-  await new Promise(r => setTimeout(r, 5000));
-
-  await browser.close();
-})();
+}
+exports.startPuppeteerBrowser = startPuppeteerBrowser;

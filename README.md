@@ -13,10 +13,17 @@ To use it, run
 git clone https://github.com/juliandescottes/pptr-ff-example
 cd pptr-ff-example
 npm install
-node index.js
+node examples/basic.js
 ```
 
 This should:
 - download a Firefox Nightly on your machine
 - open a page on http://example.com
 - close the browser after 5 seconds
+
+All example tests accept the following arguments:
+- `--chrome`: will run the test using Puppeteer for Chrome instead of Firefox
+- `--path=Some/Local/Executable/Path`: use a local version of Chrome or Firefox instead of the one downloaded by Puppeteer
+
+Using `--chrome` you can easily compare Chrome and Firefox behavior for the same puppeteer test.
+Using `--path` you can test local improvements for the Firefox support of puppeteer (for Firefox developers).

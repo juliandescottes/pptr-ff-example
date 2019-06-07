@@ -4,15 +4,13 @@
   "version": "0.0.1",
   "description": "Simple example using pptr-ff",
   "main": "index.js",
-  "repository": "github:juliandescottes/pptr-ff",
-  "homepage": "https://github.com/juliandescottes/pptr-ff",
+  "repository": "github:juliandescottes/pptr-ff-example",
+  "homepage": "https://github.com/juliandescottes/pptr-ff-example",
   "engines": {
     "node": ">=8.9.4"
   },
-  "puppeteer": {
-    "firefox_download_path": "nightly/2019/06/2019-06-05-09-52-25-mozilla-central/firefox-69.0a1"
-  },
   "dependencies": {
-    "jdescottes-pptr-ff": "^0.0.2"
+    "jdescottes-pptr-ff": "^0.0.2",
+    "puppeteer": "^1.6.2"
   }
 }
