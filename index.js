@@ -12,6 +12,8 @@ const startPuppeteerBrowser = function(argv) {
   console.log('[index] Using Browser: ' + (isChrome ? 'Chrome' : 'Firefox'));
   const puppeteer = isChrome ? puppeteerChrome : puppeteerFirefox;
 
+  const dumpio = argv.some(arg => arg.includes("dumpio"));
+
   const pathArg = argv.find(arg => arg.includes("path="));
   const executablePath = pathArg ? pathArg.split("=")[1] : null;
   if (executablePath) {
@@ -20,6 +22,7 @@ const startPuppeteerBrowser = function(argv) {
 
   console.log('[index] Launch browser');
   return puppeteer.launch({
+    dumpio,
     headless: false,
     executablePath,
   });

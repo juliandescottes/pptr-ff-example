@@ -10,7 +10,7 @@
     "node": ">=8.9.4"
   },
   "dependencies": {
-    "jdescottes-pptr-ff": "^0.0.2",
+    "jdescottes-pptr-ff": "^0.0.4",
     "puppeteer": "^1.6.2"
   }
 }
